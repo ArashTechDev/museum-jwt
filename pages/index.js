@@ -1,12 +1,12 @@
 /*********************************************************************************
-* WEB422 – Assignment 4
+* WEB422 – Assignment 5
 *
 * I declare that this assignment is my own work in accordance with Seneca's
 * Academic Integrity Policy:
 *
 * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Arashdeep Singh Student ID: 165871229 Date: 5 July 2024
+* Name: Arashdeep Singh Student ID: 165871229 Date: 19 July 2024
 *
 ********************************************************************************/
 import { Container, Row, Col, Image } from 'react-bootstrap';
