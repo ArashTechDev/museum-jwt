@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-let mongoDBConnectionString = process.env.MONGO_URL;
+let mongoDBConnectionString = process.env.MONGODB_CONN;
 
 let Schema = mongoose.Schema;
 
