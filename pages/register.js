@@ -1,5 +1,5 @@
 import { Card, Form, Alert, Button } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { registerUser } from '@/lib/authenticate';
 
@@ -9,6 +9,13 @@ export default function Register(props) {
   const [password2, setPassword2] = useState('');
   const [warning, setWarning] = useState('');
   const router = useRouter();
+
+  useEffect(() => {
+    // Remove fdprocessedid attribute if it exists
+    document.querySelectorAll('[fdprocessedid]').forEach(element => {
+      element.removeAttribute('fdprocessedid');
+    });
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();

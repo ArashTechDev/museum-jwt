@@ -14,9 +14,7 @@ const userService = require("./user-service.js");
 const HTTP_PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-app.use(cors({
-    origin: 'http://localhost:3000',
-}));
+app.use(cors());
 
 
 let jwtOptions = {
@@ -42,11 +40,12 @@ app.use(passport.initialize());
 
 
 app.post("/api/user/register", (req, res) => {
-    console.log("API URL: ", process.env.NEXT_PUBLIC_API_URL);
+    console.log("Registering user with data: ", req.body);
     userService.registerUser(req.body)
     .then((msg) => {
         res.json({ "message": msg });
     }).catch((msg) => {
+        console.error("Error registering user: ", msg);
         res.status(422).json({ "message": msg });
     });
 });
