@@ -10,12 +10,7 @@ export default function Register(props) {
   const [warning, setWarning] = useState('');
   const router = useRouter();
 
-  useEffect(() => {
-    // Remove fdprocessedid attribute if it exists
-    document.querySelectorAll('[fdprocessedid]').forEach(element => {
-      element.removeAttribute('fdprocessedid');
-    });
-  }, []);
+
 
   async function handleSubmit(e) {
     e.preventDefault();

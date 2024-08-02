@@ -10,10 +10,21 @@ const JwtStrategy = passportJWT.Strategy;
 
 dotenv.config();
 const userService = require("./user-service.js");
+app.use(express.json());
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    next();
+  });
+   
 
 const HTTP_PORT = process.env.PORT || 8080;
 
-app.use(express.json());
+
+
+
 app.use(cors());
 
 
