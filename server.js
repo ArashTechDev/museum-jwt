@@ -40,6 +40,7 @@ app.use(passport.initialize());
 
 
 app.post("/api/user/register", (req, res) => {
+    console.log("API URL: ", process.env.NEXT_PUBLIC_API_URL);
     userService.registerUser(req.body)
     .then((msg) => {
         res.json({ "message": msg });
