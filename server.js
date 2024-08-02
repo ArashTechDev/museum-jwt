@@ -49,6 +49,18 @@ let strategy = new JwtStrategy(jwtOptions, function (jwt_payload, next) {
 passport.use(strategy);
 app.use(passport.initialize());
 
+userService.connect()
+    .then(() => {
+        console.log('Connected to the database');
+
+        // Start the server after the database connection is established
+        app.listen(HTTP_PORT, () => {
+            console.log(`Server is running on port ${HTTP_PORT}`);
+        });
+    })
+    .catch((err) => {
+        console.error('Database connection error: ', err);
+    });
 
 app.post("/api/user/register", (req, res) => {
     console.log("Registering user with data: ", req.body);
